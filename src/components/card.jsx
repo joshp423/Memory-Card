@@ -36,12 +36,20 @@ function Card({ name }) {
     )
 }
 
-export default function CardSection({ name }) {
+function shuffleArray(array) {
+    return [...array].sort(() => Math.random() - 0.5);
+}
+
+
+export default function CardSection() {
+
+    const playerList = ["Jalen_Brunson", "Donovan_Mitchell", "Jayson_Tatum", "Giannis_Antetokounmpo", "Luka_Dončić", "Kyrie_Irving", "Stephen_Curry", "Lebron_James", "Kevin_Durant", "Nikola_Jokić"];
+    
+    const [playerArray] = useState(() => shuffleArray(playerList));
     
     return (
-        <div className="nameCard">
-            <img src={image} alt={name + " image"} />
-            <h1>{playerName}</h1>
+        <div className="CardSection">
+            <Card name = {playerArray[0]}/>
         </div>
     )
 }
