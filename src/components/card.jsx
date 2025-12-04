@@ -29,7 +29,7 @@ export default function Card({ name }) {
     const playerName = name.replace("_", " ")
     return (
         <div className="nameCard">
-            <img src={image} alt="Luka Dončić" />
+            <img src={image} alt={name + " image"} />
             <h1>{playerName}</h1>
         </div>
     )
