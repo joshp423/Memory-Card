@@ -15,7 +15,7 @@ async function getImage(playerName) {
     }
 }
 
-export default function Card({ name }) {
+function Card({ name }) {
     const [image, setImage] = useState(null);
 
     useEffect(() => {
@@ -27,6 +27,17 @@ export default function Card({ name }) {
     }, [name]); // dependency array - run this whenever name changes
     
     const playerName = name.replace("_", " ")
+
+    return (
+        <div className="nameCard">
+            <img src={image} alt={name + " image"} />
+            <h1>{playerName}</h1>
+        </div>
+    )
+}
+
+export default function CardSection({ name }) {
+    
     return (
         <div className="nameCard">
             <img src={image} alt={name + " image"} />

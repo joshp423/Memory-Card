@@ -28,7 +28,7 @@ function App() {
   
 
   return (
-    <>
+    <div className='App'>
       <Card
         name = {playerArray[0]}
       />
@@ -60,7 +60,7 @@ function App() {
         name = {playerArray[8]}
       />
       <h1>bre</h1>
-    </>
+    </div>
   )
 }
 
