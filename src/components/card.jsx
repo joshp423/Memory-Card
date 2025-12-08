@@ -29,11 +29,25 @@ function Card({ name }) {
     const playerName = name.replace("_", " ")
 
     return (
-        <div className="nameCard">
+        <div className="nameCard" id={name} onClick={updateClickedArray}>
             <img src={image} alt={name + " image"} />
             <h1>{playerName}</h1>
         </div>
     )
+}
+
+function updateClickedArray(e, clickedArray, setClickedArray ) {
+    setClickedArray({
+        ...clickedArray,
+        [e.target.id]:e.target.id
+    })
+}
+
+function clickedNameCheck(e, clickedArray){
+    if (clickedArray.includes(e.target.name)) {
+       return true; 
+    }
+    return false;
 }
 
 function shuffleArray(array) {
@@ -46,10 +60,23 @@ export default function CardSection() {
     const playerList = ["Jalen_Brunson", "Donovan_Mitchell", "Jayson_Tatum", "Giannis_Antetokounmpo", "Luka_Dončić", "Kyrie_Irving", "Stephen_Curry", "Lebron_James", "Kevin_Durant", "Nikola_Jokić"];
     
     const [playerArray] = useState(() => shuffleArray(playerList));
+
+    const [clickedArray, setClickedArray] = useState([])
+
+    const [score, setScore] = useState(0)
     
     return (
         <div className="CardSection">
             <Card name = {playerArray[0]}/>
+            <Card name = {playerArray[1]}/>
+            <Card name = {playerArray[2]}/>
+            <Card name = {playerArray[3]}/>
+            <Card name = {playerArray[4]}/>
+            <Card name = {playerArray[5]}/>
+            <Card name = {playerArray[6]}/>
+            <Card name = {playerArray[7]}/>
+            <Card name = {playerArray[8]}/>
+            <Card name = {playerArray[9]}/>
         </div>
     )
 }

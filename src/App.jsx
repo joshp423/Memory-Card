@@ -1,10 +1,11 @@
 import CardSection from "./components/card";
+import Header from "./components/header";
 
 function App() {
 
   return (
     <div className='App'>
-      <h1>bre's nuts</h1>
+      <Header/>
       <CardSection/>
     </div>
   )
