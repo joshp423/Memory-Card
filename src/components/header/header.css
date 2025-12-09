@@ -1,0 +1,22 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: linear-gradient(#bbb7b7, #84766F);
+}
+
+.headerLeft>h1 {
+    font-size: 45px;
+
+}
+
+.headerRight {
+    margin-top: 10px;
+
+}
+
+.headerRight>p {
+    margin: 0px;
+}

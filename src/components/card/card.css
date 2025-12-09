@@ -1,9 +1,17 @@
+@keyframes enlarge {
+    from {
+        transform: scale(1)
+    }
+    to {
+        transform: scale(1.05)
+    }
+}
+
 .cardSection {
     display: grid;
     grid-template: repeat(5, 1fr) / repeat(2, 1fr);
-    margin: 20px;
+    margin: 0px 20px 20px 20px;
     gap: 20px;
-    
 }
 
 .nameCard {
@@ -24,4 +32,9 @@
 .nameCard>h1 {
     font-size: 30px;
     margin: 10px
+}
+
+.nameCard:hover {
+    box-shadow:0px 0px 8px blue, 0px 2px 8px red;
+    animation: enlarge 0.5s ease-in-out both;
 }

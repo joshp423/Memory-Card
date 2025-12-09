@@ -1,30 +1,7 @@
 import { useState, useEffect } from "react";
 import './card.css'
 
-async function getImage(playerName) {
-    try {
-        const response = await fetch(
-            `https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?p=${playerName}`
-        )
-        const playerData = await response.json();
-        console.log(playerData)
-        return playerData.player[0].strThumb
-
-    } catch (error) {
-        console.error("Fetch error:", error)
-    }
-}
-
-function Card({ name, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList}) {
-    const [image, setImage] = useState(null);
-
-    useEffect(() => {
-        async function loadImage() {
-            const img = await getImage(name);
-            setImage(img);
-        }
-        loadImage();
-    }, [name]); // dependency array - run this whenever name changes
+function Card({ name, image, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList}) {
     
     const playerName = name.replace("_", " ")
 
@@ -84,11 +61,37 @@ export default function CardSection({ score, setScore, bestScore, setBestScore }
 
     const [clickedList, setClickedList] = useState(new Set());
 
+    const [imageCache, setImageCache] = useState({});
+
+    useEffect(() => {
+        async function loadImages() {
+            const images = {};
+
+            for (const player of playerList) {
+                const playerName = player.replace("_", " ");
+                try {
+                    const response = await fetch(
+                        `https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?p=${playerName}`
+                    );
+                    const playerData = await response.json();
+                    images[player] = playerData.player[0].strThumb;
+
+                } catch (error) {
+                    console.error("Fetch error:", error)
+                }
+            };
+            setImageCache(images)
+        }
+        loadImages();
+    }, []);
+    
+
     return (
         <div className="cardSection">
             {playerArray.map((e) => 
                 <Card
                     name={e}
+                    image={imageCache[e]}
                     clickedList={clickedList}
                     setClickedList={setClickedList}
                     setPlayerArray={setPlayerArray}

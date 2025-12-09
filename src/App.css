@@ -2,10 +2,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    font-weight: normal;
 }
 
 body {
     background-color: #84766F;
     color: black;
+    
 }
