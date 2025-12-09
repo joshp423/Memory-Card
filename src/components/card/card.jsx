@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import './card.css'
 const playerList = ["Jalen_Brunson", "Donovan_Mitchell", "Jayson_Tatum", "Giannis_Antetokounmpo", "Luka_Dončić", "Kyrie_Irving", "Stephen_Curry", "Lebron_James", "Kevin_Durant", "Nikola_Jokić"];
 
-function Card({ name, image, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList}) {
+function Card({ name, image, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray}) {
     
     const playerName = name.replace("_", " ")
 
@@ -10,7 +10,7 @@ function Card({ name, image, clickedList, setClickedList, score, setScore, bestS
         <div
             className="nameCard"
             id={name}
-            onClick={(e) => updateClickedList(e, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList)}
+            onClick={(e) => updateClickedList(e, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray)}
         >
             <img src={image} alt={name + " image"} />
             <h1>{playerName}</h1>
@@ -18,7 +18,7 @@ function Card({ name, image, clickedList, setClickedList, score, setScore, bestS
     )
 }
 
-function updateClickedList(e, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList) {
+function updateClickedList(e, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray) {
 
     function clickedNameCheck(){
         if (clickedList.has(e.currentTarget.id)) {
@@ -27,9 +27,7 @@ function updateClickedList(e, clickedList, setClickedList, score, setScore, best
         return false;
     }
 
-
     clickedNameCheck()
-    console.log(clickedList)
 
     if (clickedNameCheck()) {
         setScore(0);
@@ -96,7 +94,6 @@ export default function CardSection({ score, setScore, bestScore, setBestScore }
                     clickedList={clickedList}
                     setClickedList={setClickedList}
                     setPlayerArray={setPlayerArray}
-                    playerList={playerList}
                     score={score}
                     setScore={setScore}
                     bestScore={bestScore}
