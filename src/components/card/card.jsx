@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import './card.css'
+const playerList = ["Jalen_Brunson", "Donovan_Mitchell", "Jayson_Tatum", "Giannis_Antetokounmpo", "Luka_Dončić", "Kyrie_Irving", "Stephen_Curry", "Lebron_James", "Kevin_Durant", "Nikola_Jokić"];
 
 function Card({ name, image, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList}) {
     
@@ -55,7 +56,7 @@ function shuffleArray(array) {
 
 export default function CardSection({ score, setScore, bestScore, setBestScore }) {
 
-    const playerList = ["Jalen_Brunson", "Donovan_Mitchell", "Jayson_Tatum", "Giannis_Antetokounmpo", "Luka_Dončić", "Kyrie_Irving", "Stephen_Curry", "Lebron_James", "Kevin_Durant", "Nikola_Jokić"];
+    
     
     const [playerArray, setPlayerArray] = useState(shuffleArray(playerList));
 
