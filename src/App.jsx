@@ -1,6 +1,7 @@
 import { useState } from "react";
-import CardSection from "./components/card";
-import Header from "./components/header";
+import CardSection from "./components/card/card";
+import Header from "./components/header/header";
+import "./App.css"
 
 function App() {
 

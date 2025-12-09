@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import './card.css'
 
 async function getImage(playerName) {
     try {
@@ -40,8 +40,6 @@ function Card({ name, clickedList, setClickedList, score, setScore, bestScore, s
     )
 }
 
-
-
 function updateClickedList(e, clickedList, setClickedList, score, setScore, bestScore, setBestScore, setPlayerArray, playerList) {
 
     function clickedNameCheck(){
@@ -74,12 +72,9 @@ function updateClickedList(e, clickedList, setClickedList, score, setScore, best
     
 }
 
-
-
 function shuffleArray(array) {
     return [...array].sort(() => Math.random() - 0.5);
 }
-
 
 export default function CardSection({ score, setScore, bestScore, setBestScore }) {
 
